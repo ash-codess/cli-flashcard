@@ -1,0 +1,82 @@
+[
+    {
+      "front": "What is PySpark?",
+      "back": "PySpark is the Python API for Apache Spark, an open-source distributed computing framework for big data processing and analytics."
+    },
+    {
+      "front": "What is an RDD in Spark?",
+      "back": "RDD (Resilient Distributed Dataset) is the fundamental data structure of Spark. It's an immutable distributed collection of objects that can be processed in parallel."
+    },
+    {
+      "front": "How do you create a SparkSession in PySpark?",
+      "back": "from pyspark.sql import SparkSession\nspark = SparkSession.builder.appName('MyApp').getOrCreate()"
+    },
+    {
+      "front": "What is the difference between map() and flatMap() in PySpark?",
+      "back": "map() transforms each element of an RDD into one new element, while flatMap() can create zero or more new elements from each input element."
+    },
+    {
+      "front": "How do you read a CSV file in PySpark?",
+      "back": "df = spark.read.csv('path/to/file.csv', header=True, inferSchema=True)"
+    },
+    {
+      "front": "What is a DataFrame in PySpark?",
+      "back": "A DataFrame is a distributed collection of data organized into named columns. It's conceptually equivalent to a table in a relational database."
+    },
+    {
+      "front": "How do you filter data in a PySpark DataFrame?",
+      "back": "filtered_df = df.filter(df.column_name > value) or\nfiltered_df = df.where(df.column_name > value)"
+    },
+    {
+      "front": "What is the purpose of cache() in PySpark?",
+      "back": "cache() is used to persist a DataFrame or RDD in memory, which can significantly speed up iterative operations on the same dataset."
+    },
+    {
+      "front": "How do you perform a groupBy operation in PySpark?",
+      "back": "result = df.groupBy('column_name').agg({'other_column': 'sum'})"
+    },
+    {
+      "front": "What is a broadcast variable in Spark?",
+      "back": "A broadcast variable is a read-only variable cached on each machine rather than shipped with tasks. It's used to give every node a copy of a large input dataset efficiently."
+    },
+    {
+      "front": "How do you handle missing data in PySpark?",
+      "back": "You can use methods like dropna() to remove rows with null values, or fillna() to replace null values with a specified value."
+    },
+    {
+      "front": "What is the difference between repartition() and coalesce() in PySpark?",
+      "back": "repartition() can increase or decrease the number of partitions and involves a full shuffle. coalesce() can only reduce the number of partitions and minimizes data movement."
+    },
+    {
+      "front": "How do you write a PySpark DataFrame to a Parquet file?",
+      "back": "df.write.parquet('path/to/output.parquet')"
+    },
+    {
+      "front": "What is a UDF in PySpark and how do you create one?",
+      "back": "UDF stands for User-Defined Function. You can create one using:\nfrom pyspark.sql.functions import udf\nfrom pyspark.sql.types import IntegerType\nsquare = udf(lambda x: x * x, IntegerType())"
+    },
+    {
+      "front": "How do you perform a join operation in PySpark?",
+      "back": "joined_df = df1.join(df2, df1.key == df2.key, 'inner')"
+    },
+    {
+      "front": "What is the purpose of persist() in PySpark?",
+      "back": "persist() allows you to specify the storage level (memory, disk, etc.) when caching an RDD or DataFrame, giving more control over how data is stored."
+    },
+    {
+      "front": "How do you add a new column to a PySpark DataFrame?",
+      "back": "from pyspark.sql.functions import lit\nnew_df = df.withColumn('new_column', lit(0))"
+    },
+    {
+      "front": "What is the difference between transform() and select() in PySpark?",
+      "back": "transform() applies a function to each element of an RDD, while select() is used to choose specific columns from a DataFrame."
+    },
+    {
+      "front": "How do you convert a PySpark DataFrame to Pandas DataFrame?",
+      "back": "pandas_df = spark_df.toPandas()"
+    },
+    {
+      "front": "What is the purpose of spark.sql.shuffle.partitions in PySpark?",
+      "back": "It sets the number of partitions used when shuffling data for joins or aggregations. It can affect performance and resource usage."
+    }
+  ]
